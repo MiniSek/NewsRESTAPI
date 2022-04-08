@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Your articles</title>
+    <meta charset="UTF-8">
+</head>
+
+<style>
+    table, th, td {
+        border: 2px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+</style>
+<body>
+
+<table>
+    <tbody>
+    <tr th:each="article : ${articleList}">
+        <td><span th:text="${article.source}" th:width="200px"></span></td>
+        <td><span th:text="${article.title}" th:width="500px"></span></td>
+        <td><span th:text="${article.section}" th:width="500px"></span></td>
+        <td><span th:text="${article.publicationDate}" th:width="500px"></span></td>
+        <td th:if="${article.webUrl != 'URL'}">
+            <a th:href="${article.webUrl}">
+                Read article
+            </a>
+        </td>
+        <td th:if="${article.webUrl == 'URL'}">
+            Link to article
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<form action="#" th:action="@{/form}" method="GET">
+    <p>
+        <input type="submit" value="Return"/>
+    </p>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: pl.edu.agh.sr.news_provider.NewsProviderApplication
+
